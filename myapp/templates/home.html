@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Interests Selector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block title %}Research Interests Selector{% endblock %}
+
+    {% block content %}
+    <header>
+        <h1>Welcome to Connected!</h1>
+    </header>
+    
+    <div class="layout-container">
+        <div class="image-container">
+            <figure>
+                <img src="{{ url_for('static', filename='images/featured-card_21_3291198_16400.jpg') }}" alt="AI Research Image" class="img-fluid">
+                <figcaption class="image-caption">Dr. Tanya Berger-Wolf and Students working on Artificial Intelligence research</figcaption>
+            </figure>
+            <figure>
+                <img src="{{ url_for('static', filename='images/byrd_center_header.jpg')}}" alt="Byrd" class="img-fluid">
+                <figcaption class="image-caption">The fascinating Byrd Polar and Climate Research Center</figcaption>
+            </figure>
+        </div>
+        
+        <div id="content-container">
+            <p>Use the form below to select up to 3 of your research interests, and Connected will match you up with some professors!</p>
+            <form action="/result" method="post">
+                <label for="department">Select Department:</label>
+                <select name="department" id="department">
+                    <option value="">Select a Department</option>
+                    {% for department in data.keys() %}
+                        <option value="{{ department }}">{{ department }}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <label for="research_area">Select Research Area:</label>
+                <select name="research_area" id="research_area">
+                    <option value="">Select a Research Area</option>
+                </select>
+                <br>
+                <label for="add_more">Would you like to add another interest? (yes/no)</label>
+                <input type="text" id="add_more" name="add_more">
+                <br>
+                <div id="additional-interests" style="display:none;">
+                    <label for="department2">Select Second Department:</label>
+                    <select name="department2" id="department2">
+                        <option value="">Select a Department</option>
+                        {% for department in data.keys() %}
+                            <option value="{{ department }}">{{ department }}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
+                    <label for="research_area2">Select Second Research Area:</label>
+                    <select name="research_area2" id="research_area2">
+                        <option value="">Select a Research Area</option>
+                    </select>
+                    <br>
+                    <label for="add_more2">Would you like to add another interest? (yes/no)</label>
+                    <input type="text" id="add_more2" name="add_more2">
+                    <br>
+                    <div id="third-interest" style="display:none;">
+                        <label for="department3">Select Third Department:</label>
+                        <select name="department3" id="department3">
+                            <option value="">Select a Department</option>
+                            {% for department in data.keys() %}
+                                <option value="{{ department }}">{{ department }}</option>
+                            {% endfor %}
+                        </select>
+                        <br>
+                        <label for="research_area3">Select Third Research Area:</label>
+                        <select name="research_area3" id="research_area3">
+                            <option value="">Select a Research Area</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    
+    <div id="connected-research">
+        <h2>Connected</h2>
+        <div id="professor-list">
+            {% for professor in faculty_list %}
+            <div class="professor-item">
+                <h3>{{ professor.name }}</h3>
+                <p>Research Areas: {{ professor.research_areas | join(", ") }}</p>
+                <p>Email: <a href="mailto:{{ professor.email }}">{{ professor.email }}</a></p>
+                <p>Website: <a href="{{ professor.website }}" target="_blank">{{ professor.website }}</a></p>
+                <button class="add-to-cart" data-name="{{ professor.name }}">Add to Cart</button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy;</p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            var researchAreas = {{ data | tojson | safe }};
+
+            function updateResearchAreas(department, researchAreaSelector) {
+                var areas = researchAreas[department] || [];
+                $(researchAreaSelector).empty();
+                $(researchAreaSelector).append('<option value="">Select a Research Area</option>');
+                $.each(areas, function(index, area) {
+                    $(researchAreaSelector).append('<option value="' + area + '">' + area + '</option>');
+                });
+            }
+
+            $('#department').change(function() {
+                var department = $(this).val();
+                updateResearchAreas(department, '#research_area');
+            });
+
+            $('#department2').change(function() {
+                var department = $(this).val();
+                updateResearchAreas(department, '#research_area2');
+            });
+
+            $('#department3').change(function() {
+                var department = $(this).val();
+                updateResearchAreas(department, '#research_area3');
+            });
+
+            $('#add_more').change(function() {
+                if (this.value.toLowerCase() === 'yes') {
+                    $('#additional-interests').show();
+                } else {
+                    $('#additional-interests').hide();
+                    $('#department2').val('');
+                    $('#research_area2').empty().append('<option value="">Select a Research Area</option>');
+                    $('#add_more2').val('');
+                    $('#third-interest').hide();
+                    $('#department3').val('');
+                    $('#research_area3').empty().append('<option value="">Select a Research Area</option>');
+                }
+            });
+
+            $('#add_more2').change(function() {
+                if (this.value.toLowerCase() === 'yes') {
+                    $('#third-interest').show();
+                } else {
+                    $('#third-interest').hide();
+                    $('#department3').val('');
+                    $('#research_area3').empty().append('<option value="">Select a Research Area</option>');
+                }
+            });
+
+            $('.add-to-cart').click(function() {
+                var professorName = $(this).data('name');
+                $.post('/add_to_cart', { name: professorName }, function(response) {
+                    alert('Professor added to cart!');
+                });
+            });
+        });
+    </script>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <div class="page-container">
+        <header class="page-header">
+            <h1>About Us</h1>
+        </header>
+        <div class="about-content">
+            <div class="box">
+                <h3>Our Mission</h3>
+                <h6>Connected was developed by Rushil Gaddam and Faisal Alsulaiman to help students begin research at The Ohio State University.</h6>
+                <p>As students who have done research in the past and are super passionate about conducting research, we found it very challenging to find opportunities that met our initial interests. This website helps all students at The Ohio State University learn about professors, their research interests, and their labs, to find the research they are most interested in pursuing.</p>
+            </div>
+            <div class="box">
+                <h3>Features</h3>
+                <p>In the 'Research Areas' section, all of the research areas from professors are displayed, and a user is able to click on one of those areas to learn more about it before they decide.</p>
+                <p>In the 'Search Professor' section, you can search for a professor, and that professor's research interests, personal website/lab, and email will be shown.</p>
+            </div>
+            <div class="box">
+                <h3>Get in Touch</h3>
+                <p>If you have any feedback or suggestions, please contact us at 
+                    <a href="mailto:rushilgaddam5@gmail.com">rushilgaddam5@gmail.com</a> or 
+                    <a href="mailto:alsulaimanfaisal87@gmail.com">alsulaimanfaisal87@gmail.com</a>
+                </p>
+            </div>
+            <div class="box">
+                <h3>Honors & Acknowledgements</h3>
+                <p>We would like to thank the following individuals for their invaluable help and contributions to the development of this website:</p>
+                <ul>
+                    <li><strong>Abhinav Gautam</strong> - Aided in website development and the gathering of data</li>
+                    <li><strong>Shivam Parikh</strong> - Aided in website development and design of important web pages</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Tips</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <div class="page-container">
+        <header class="page-header">
+            <h1>Tips for Students</h1>
+        </header>
+        <div class="page-content">
+            <div class="tips-section">
+                <h2>Beginning Research as an Undergrad</h2>
+                <ul>
+                    <li>You can start research right away as a freshman in college or you could wait until later in your undergraduate study.</li>
+                    <li>You should limit your research involvement during your academic break when you don't have classes (summer, winter, etc.).</li>
+                    <li>You need to schedule your research around your classes, sports, part-time jobs, or other commitments.</li>
+                    <li>You can research for a semester in a lab under a professor, though many fields benefit from a minimum of a year-long commitment.</li>
+                    <li>You can engage in one research opportunity or explore different projects throughout your undergraduate study as your interests evolve.</li>
+                    <li>You can also earn academic credit for the research you perform!</li>
+                </ul>
+
+                <h3>Planning</h3>
+                <p>You should list topics or areas that interest you (no matter how niche they might seem, ex: Brownian Motion!). You should include a few keywords for each so that you can search it on our engine. These topics should fascinate you, areas you feel compelled to explore, problems you wish to solve, or something mentioned in a class that you want to delve deeper into! The more enthusiastic you are about a topic, the more successful you will be!</p>
+
+                <h3>Beginning Searching for Professors</h3>
+                <ul>
+                    <li>Use our search engine to find professors that match your interests.</li>
+                    <li>Find professors with one or multiple matching research interests.</li>
+                    <li>Look at research areas on the website to refine your search and to have an idea of what research areas are available.</li>
+                    <li>Look at the professor’s website to get more information on the research topic, qualifications, and open positions.</li>
+                </ul>
+
+                <h3>Think About Your Commitments</h3>
+                <p>It is up to you to find the balance that fits your life. Determine how many hours you can commit per week, balancing your other obligations (including classes, activities, sports, jobs, study time, and relaxation). Identify days you cannot research due to other commitments.</p>
+
+                <h3>How to Contact</h3>
+                <ul>
+                    <li>Use the search engine to find professors that research topics of your interest.</li>
+                    <li>Create a short list of professors that you want to contact.</li>
+                    <li>Our engine provides the emails of all the professors, and you can always look at the professor’s website to find more contact information (also provided by our engine).</li>
+                </ul>
+
+                <h3>Emailing</h3>
+                <ul>
+                    <li>Always use your OSU email (@osu.edu) so that the professors know it is a legitimate email.</li>
+                    <li>ALWAYS keep your emails brief. Most of the time a professor will be reading this on their phone and will NOT want to read a 500-word email. Keep your emails brief and to the point.</li>
+                    <li>Do not send your CV or Resume on the first contact. The first email is just to show your interest in the professor’s lab. But you should always be ready to send one if asked about it down the line.</li>
+                    <li>This is one way you can format your email (This is not a strict guide and not all emails have to follow this format):
+                        <ul>
+                            <li>Subject: Interest in Undergrad Research</li>
+                            <li>Professional greeting: Dear Dr.</li>
+                            <li>Sentence 1: Introduce yourself (Name, Class, Major)</li>
+                            <li>Sentence 2-3: Briefly discuss something in the professor’s lab that interests you and what about the lab you find interesting.</li>
+                            <li>Concluding sentences: Request to meet to discuss your interests and research opportunities available.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>Following Up</h3>
+                <ul>
+                    <li>Do not worry if the professor you emailed does not respond back (It’s nothing personal). Many of the professors are extremely busy and receive hundreds of emails a day.</li>
+                    <li>If the professor you emailed has not responded in 3-4 days, you can send a follow-up email. The follow-up email should be a reply to the original email that was sent.</li>
+                    <li>If you are still unsuccessful, you can always look at their website and find other faculty in the lab (Post-Docs, Grad Students) and email them.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

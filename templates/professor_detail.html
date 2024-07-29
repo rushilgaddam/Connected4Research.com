@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Professor Detail{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ professor.name }}</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Research Interests</h5>
+            <ul class="list-group list-group-flush">
+                {% for interest in professor.research_areas %}
+                    <li class="list-group-item">{{ interest }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="card-footer">
+            <p><strong>Email:</strong> {{ professor.email }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Professor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Fetch all professors on page load
+            fetch('/get_all_professors')
+                .then(response => response.json())
+                .then(data => {
+                    window.professors = data;
+                });
+
+            $('#search-input').on('input', function() {
+                const query = this.value.toLowerCase();
+                const filteredProfessors = window.professors.filter(professor =>
+                    professor.name.toLowerCase().includes(query)
+                );
+                const resultsList = $('#results-list');
+                resultsList.empty();
+                filteredProfessors.forEach(professor => {
+                    resultsList.append(`
+                        <li class="result-item">
+                            <strong>${professor.name}</strong><br>
+                            Email: <a href="mailto:${professor.email}">${professor.email}</a><br>
+                            Research Interests: ${professor.research_areas.join(', ')}<br>
+                            ${professor.website ? `Website: <a href="${professor.website}" target="_blank">${professor.website}</a><br>` : ''}
+                        </li>
+                    `);
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <div class="page-container">
+        <header class="page-header">
+            <h1>Search for a Professor</h1>
+        </header>
+        <div class="page-content">
+            <form id="search-form">
+                <label for="search-input">Enter professor's name:</label>
+                <input type="text" id="search-input" placeholder="Type professor's name...">
+            </form>
+            <ul id="results-list" class="results-list"></ul>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

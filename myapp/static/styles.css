@@ -1,0 +1,434 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif; /* Updated font */
+    margin: 0;
+    padding: 0;
+    padding-top: 60px; /* Space for fixed navbar */
+    background-color: #f5f5f5; /* Light gray background */
+    color: #333; /* Dark text color for better readability */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar */
+nav {
+    background-color: #c8102e; /* OSU scarlet color */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1001; /* Ensure navbar is on top */
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; /* Ensure padding is included in width/height */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding is included in width/height */
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+nav a:hover {
+    color: #f4f4f4; /* Slightly lighter color on hover */
+    text-decoration: underline;
+}
+
+/* Main Layout */
+.main-content {
+    flex: 1;
+    margin-top: 60px; /* Match navbar height */
+}
+
+/* Page Container */
+.page-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding-bottom: 60px; /* Space for fixed footer */
+}
+
+/* Header */
+header {
+    background-color: #c8102e; /* OSU scarlet color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    background-color: #c8102e; /* OSU scarlet color */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Content Styling */
+.layout-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Image Container */
+.image-container {
+    flex: 0 0 300px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-right: 3px solid #c8102e; /* OSU scarlet color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-right: 20px;
+}
+
+/* Image Styling */
+.image-container img.img-fluid {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Caption Styling */
+figcaption.image-caption {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+
+/* Form Styling */
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #c8102e; /* OSU scarlet color */
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #c8102e; /* OSU scarlet color */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #a30000; /* Darker scarlet on hover */
+}
+
+/* Connected Research Box */
+#connected-research {
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px solid #c8102e; /* OSU scarlet color */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+    width: 100%;
+}
+
+/* Page Header */
+.page-header {
+    color: #c8102e; /* OSU scarlet color */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 18px; /* Adjusted for readability */
+    font-weight: bold;
+    color: #333; /* Dark color for contrast */
+    margin: 10px 0;
+}
+
+/* Research Areas Page */
+.research-item {
+    background-color: #ffffff;
+    border: 2px solid #c8102e; /* OSU scarlet color */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.research-item h2 {
+    color: #c8102e; /* OSU scarlet color */
+    margin-bottom: 10px;
+}
+
+.research-item ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.research-item li {
+    margin-bottom: 5px;
+}
+
+/* Page Header */
+.page-header {
+    color: #c8102e; /* OSU scarlet color */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+/* About Content */
+.about-content {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content .box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.about-content .box h3 {
+    color: #c8102e; /* OSU scarlet color */
+    margin-bottom: 15px;
+}
+
+.about-content .box p {
+    color: #333;
+    font-size: 16px;
+}
+
+.about-content .box ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.about-content .box li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+
+/* Honors Section */
+.honors-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.honors-section h2 {
+    color: #c8102e; /* OSU scarlet color */
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.honors-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.honors-section li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.honors-section li:last-child {
+    border-bottom: none;
+}
+
+.honors-section li strong {
+    color: #333;
+}
+
+/* Boxes */
+.box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px;
+    margin-bottom: 20px;
+}
+
+.box h2 {
+    color: #c8102e; /* OSU scarlet color */
+    margin-bottom: 15px;
+}
+
+.box p {
+    color: #333;
+    font-size: 16px;
+}
+
+/* Tips Page */
+.tips-container {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.tips-container h1 {
+    font-size: 32px;
+    color: #c8102e; /* OSU scarlet color */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tips-container p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.tips-container a {
+    color: #c8102e; /* OSU scarlet color */
+    text-decoration: none;
+}
+
+.tips-container a:hover {
+    text-decoration: underline;
+}
+/* Page Header */
+.page-header {
+    background-color: #c8102e; /* OSU scarlet color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Page Content */
+.page-content {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Links */
+.navigation-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.nav-link {
+    color: #c8102e; /* OSU scarlet color */
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #c8102e; /* OSU scarlet color */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-content {
+        padding: 15px;
+    }
+
+    .navigation-links {
+        font-size: 14px;
+    }
+
+    .footer-link {
+        margin: 0 5px;
+    }
+}

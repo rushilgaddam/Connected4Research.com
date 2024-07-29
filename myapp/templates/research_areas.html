@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Areas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block title %}Research Areas{% endblock %}
+
+    {% block content %}
+    <div class="container">
+        <div class="search-header green-box">
+            <h1>Search for Research Areas</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="research-list" class="research-list">
+                    {% for department, areas in data.items() %}
+                        <div class="research-item" data-department="{{ department }}">
+                            <h2>{{ department }}</h2>
+                            <ul>
+                                {% for area in areas %}
+                                    <li><a href="/research_areas/{{ area }}">{{ area }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

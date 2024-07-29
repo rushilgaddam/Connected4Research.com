@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Interests Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block title %}Research Interests Results{% endblock %}
+
+    {% block content %}
+    <div class="results-container">
+        <header class="results-header">
+            <h1>Research Interests Results</h1>
+            <p>Your interests: <strong>{{ user_interests }}</strong></p>
+        </header>
+        <div class="results-content">
+            <h2>Professors with Similar Interests:</h2>
+            {% if professors %}
+                <ul class="results-list">
+                    {% for professor in professors %}
+                        <li class="result-item">
+                            <h3>{{ professor.name }}</h3>
+                            <p>Email: <a href="mailto:{{ professor.email }}">{{ professor.email }}</a></p>
+                            <p>Website: <a href="{{ professor.website }}" target="_blank">{{ professor.website }}</a></p>
+                            <p>Common Topics: {{ professor.common_topics }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No professors found with matching interests.</p>
+            {% endif %}
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ area }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block content %}
+    <div class="page-container">
+        <header class="page-header">
+            <h1>{{ area }}</h1>
+        </header>
+        <div class="page-content">
+            <p>{{ description }}</p>
+            <div class="navigation-links">
+                <a href="{{ url_for('home') }}" class="nav-link">Back to Home</a>
+                <a href="{{ url_for('research_areas') }}" class="nav-link">Research Areas</a>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    
+    {% block footer %}
+    <footer>
+        <p>&copy; {{ current_year }} The Ohio State University. All rights reserved.</p>
+        <p>
+            <a href="{{ url_for('home') }}" class="footer-link">Home</a> |
+            <a href="{{ url_for('search_professor') }}" class="footer-link">Search Professor</a> |
+            <a href="{{ url_for('about') }}" class="footer-link">About</a> |
+            <a href="{{ url_for('tips') }}" class="footer-link">Tips</a>
+        </p>
+    </footer>
+    {% endblock %}
+</body>
+</html>
